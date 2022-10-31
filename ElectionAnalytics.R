@@ -75,6 +75,31 @@ ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = TestPredictio
 ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = pred)) + 
   geom_polygon(color = "black")
 
+# A more aesthetic plot using red/blues
+ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = ZeroOnes))+
+  geom_polygon(color = "black") + scale_fill_gradient(low = "blue", high = "red", guide = "legend", breaks= c(0,1), labels = c("Democrat", "Republican"), name = "Prediction 2012")
+
+
+# We could also plot using our surety of prediction. Notice color of Oregon (middle of map).
+ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = TestPrediction))+
+  geom_polygon(color = "black") + scale_fill_gradient(low = "blue", high = "red", guide = "legend", breaks= c(0,1), labels = c("Democrat", "Republican"), name = "Prediction 2012")
+
+ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = TestPrediction))+
+  geom_polygon(color = "black", linetype = 3) + scale_fill_gradient(low = "blue", high = "red", guide = "legend", breaks= c(0,1), labels = c("Democrat", "Republican"), name = "Prediction 2012")
+
+ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = TestPrediction))+
+  geom_polygon(color = "black", linetype = 2) + scale_fill_gradient(low = "blue", high = "red", guide = "legend", breaks= c(0,1), labels = c("Democrat", "Republican"), name = "Prediction 2012")
+
+
+#linetype2 thick lines
+
+
+ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = TestPrediction))+
+  geom_polygon(color = "black", linetype = 2, size=3) + scale_fill_gradient(low = "blue", high = "red", guide = "legend", breaks= c(0,1), labels = c("Democrat", "Republican"), name = "Prediction 2012")
+
+#create transparency for aesthetics
+ggplot(predictionMap, aes(x = long, y = lat, group = group, fill = TestPrediction))+
+  geom_polygon(color = "black", linetype = 1, alpha=0.3) + scale_fill_gradient(low = "blue", high = "red", guide = "legend", breaks= c(0,1), labels = c("Democrat", "Republican"), name = "Prediction 2012")
 
 
 #Vector of Republican/Democrat
